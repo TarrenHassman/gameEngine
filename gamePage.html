@@ -64,10 +64,13 @@
             update( index ){
                 this.x = this.r * index;
                 this.y = (innerHeight - 50);
-                if(
-                    (mouse.x = this.x)
-                    ){
-                        console.log(mouse.x)
+                console.log(mouse.x);
+                console.log(this.x);
+                if(mouse.x >= (this.x + this.r) && mouse.x <= (this.x - this.r)){
+                    context.beginPath();
+                    context.arc(100, 100, 50 , 0 , Math.PI * 2, false);
+                    context.strokeStyle = 'orange';
+                    context.stroke();
                 }
                 this.draw();
 
@@ -78,6 +81,7 @@
 
         function animate(){
             requestAnimationFrame(animate);
+            // console.log(mouse.x);
             context.clearRect(0, 0, innerWidth, innerHeight);
             context.fillRect( 0 , (innerHeight - 100), innerWidth, 100 );
             context.stroke();
@@ -88,7 +92,7 @@
         
         var radius = 37.5;
         var spells = [];
-        for(len = 0; len < 10; len++){
+        for(len = 0; len < 11; len++){
             spells.push(new Spell( radius , (innerHeight - radius), radius));
         }
 
