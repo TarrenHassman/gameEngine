@@ -65,8 +65,10 @@
                 this.x = this.r * index;
                 this.y = (innerHeight - 50);
                 console.log(mouse.x);
-                console.log(this.x);
-                if(mouse.x >= (this.x + this.r) && mouse.x <= (this.x - this.r)){
+                if(
+                    (mouse.x >= (this.x - this.r) && mouse.x <= (this.x + this.r)) && 
+                    ( mouse.y >= (this.y - this.r) && mouse.y <= (this.y + this.r) )
+                ){
                     context.beginPath();
                     context.arc(100, 100, 50 , 0 , Math.PI * 2, false);
                     context.strokeStyle = 'orange';
