@@ -78,6 +78,13 @@ class Character {
         }
     }
 
+    renderRange( radius ){
+        context.beginPath();
+        context.arc(this.x, this.y, radius , 0 , Math.PI * 2, false);
+        context.strokeStyle = 'orange';
+        context.stroke();
+    }
+
     // Updates/animates location of Character element on screen and changes properties
     update(){
 
@@ -128,10 +135,7 @@ class Spell {
             ( mouse.y >= (this.y - this.r) && mouse.y <= (this.y + this.r) )
         ){
             //Place holder for character.renderRange()
-            context.beginPath();
-            context.arc(100, 100, 50 , 0 , Math.PI * 2, false);
-            context.strokeStyle = 'orange';
-            context.stroke();
+            player.renderRange( 100 );
         }
 
         // Renders outline and art asset for Spell
