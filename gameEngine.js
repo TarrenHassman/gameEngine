@@ -34,31 +34,55 @@ class Character {
     draw(){
         //Renders placeholder for art asset
         context.beginPath();
-        context.arc(this.x, this.y, this.r , 0 , Math.PI * 2, false);
+        context.arc(this.x, this.y, 10 , Math.PI * 2, false);
         context.strokeStyle = 'orange';
         context.stroke();
     }
     
     // Animates movement of Character on screen
     move( x , y ){
-        //TO-DO: Change to switch statement
-        if (){
-
+        //TO-DO: Change to switch statement & make x/y movement simultaneous
+        if ( this.x < x && this.y < y ){
+            while(this.x < x){
+                this.x++;
+                this.draw();
+            }
+            while(this.y < y){
+                this.y++;
+                this.draw();
+            }
         }
-        if (){
-
+        if ( this.x > x && this.y > y ){
+            while(this.x > x){
+                this.x--;
+            }
+            while(this.y > y){
+                this.y--;
+            }
         }
-        if(){
-
+        if(this.x < x && this.y > y){
+            while(this.x < x){
+                this.x++;
+            }
+            while(this.y > y){
+                this.y--;
+            }
         }
-        if(){
-
+        if(this.x > x && this.y < y){
+            while(this.x > x){
+                this.x--;
+            }
+            while(this.y < y){
+                this.y++;
+            }
         }
     }
 
     // Updates/animates location of Character element on screen and changes properties
     update(){
 
+
+        this.draw()
 
     }
 
@@ -130,6 +154,10 @@ function animate(){
     context.fillRect( 0 , (innerHeight - 100), innerWidth, 100 );
     context.stroke();
 
+    // Renders Characters
+    player.update();
+    player.move(200, 200);
+
     // Updates (and initially draws) spells equal to the number of spells in the spellbook variable
     for( index =0; index < spells.length; index++ ){
         spells[index].update( (index+1)*2 );
@@ -144,6 +172,9 @@ var spells = [];
 for(len = 0; len < 11; len++){
     spells.push(new Spell( radius , (innerHeight - radius), radius));
 }
+
+// Placeholder for Character JSON variable
+var player = new Character (spells, 12, 12, 100, 100);
 
 // Starts animation loop
 animate();
