@@ -18,7 +18,54 @@ window.addEventListener('mousemove' ,
     }
 )
 
+// Create Character class as representation for a Player
+
+class Character {
+    // TO-DO: add all stat properties
+    constructor( SpellBook , Health, Stats , x , y){
+        this.spellBook = SpellBook;
+        this.health = Health;
+        this.stats = Stats;
+        this.x = x;
+        this.y = y;
+    }
+
+    // "Initializes" Character element on screen
+    draw(){
+        //Renders placeholder for art asset
+        context.beginPath();
+        context.arc(this.x, this.y, this.r , 0 , Math.PI * 2, false);
+        context.strokeStyle = 'orange';
+        context.stroke();
+    }
+    
+    // Animates movement of Character on screen
+    move( x , y ){
+        //TO-DO: Change to switch statement
+        if (){
+
+        }
+        if (){
+
+        }
+        if(){
+
+        }
+        if(){
+
+        }
+    }
+
+    // Updates/animates location of Character element on screen and changes properties
+    update(){
+
+
+    }
+
+}
+
 // Create Spell class as representation for character actions
+
 class Spell {
     
     constructor( x , y , r){
