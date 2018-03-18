@@ -150,7 +150,7 @@ function animate(){
     
     //Frame Rate function
     requestAnimationFrame(animate);
-    
+
     // Clear screen every frame
     context.clearRect(0, 0, innerWidth, innerHeight);
 
