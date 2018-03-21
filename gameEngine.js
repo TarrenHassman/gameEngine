@@ -11,16 +11,30 @@ var mouse = {
 }
 
 // Set an event listener for mouse movement
-window.addEventListener('mousemove' , 
+window.addEventListener(
+    'mousemove' , 
     function( event ){
         mouse.x = event.x;
         mouse.y = event.y;
     }
 )
 
+window.addEventListener(
+    'click',
+    function(event){
+        for( index =0; index < spells.length; index++ ){
+            if(spells[index].isPointInPath( event )){
+                console.log("working");
+            }
+        }
+    }
+)
 
-function animate(){
+
+function animate(event){
     
+
+
     //Frame Rate function
     requestAnimationFrame(animate);
 
@@ -40,6 +54,8 @@ function animate(){
         spells[index].update( (index+1)*2 );
     }
 }
+
+
 
 // Placeholder value for spell size
 var radius = 37.5;

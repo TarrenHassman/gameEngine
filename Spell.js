@@ -21,6 +21,13 @@ class Spell {
         context.strokeStyle = 'orange';
         context.stroke();
     }
+
+    isPointInPath(event){
+        if((mouse.x >= (this.x - this.r) && mouse.x <= (this.x + this.r)) && 
+        ( mouse.y >= (this.y - this.r) && mouse.y <= (this.y + this.r) )){
+            return true;
+        }
+    }
     
     // Updates the Spell icons based on screen size.
     // TO-DO: Only update icon during a screen resize event.
@@ -38,8 +45,8 @@ class Spell {
         ){
             //Place holder for character.renderRange()
             player.renderRange( 100 );
+            // add onClick event listener
         }
-
         // Renders outline and art asset for Spell
         this.draw();
 
